@@ -34,6 +34,9 @@
       },
       "join": {
         "description": "Aufgabenmanager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag & Drop, weise Benutzer und Kategorien zu."
+      },
+      "dabubble": {
+        "description": "Eine Echtzeit-Chat-Anwendung, entwickelt mit Angular und Firebase. Sie ermöglicht Nutzern, Konten zu erstellen, Chaträumen beizutreten und Nachrichten sofort auszutauschen und bietet so ein nahtloses Kommunikationserlebnis."
       }
     }
   },
