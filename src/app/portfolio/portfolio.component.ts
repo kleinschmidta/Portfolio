@@ -16,7 +16,7 @@ export class PortfolioComponent {
       name: 'El Pollo Loco',
       descriptionKey: 'portfolio.projects.elpollo.description',
       tech: ['JavaScript', 'HTML5', 'OOP'],
-      github: 'https://github.com/Plepponium/ElPolloLoco',
+      github: 'https://github.com/kleinschmidta/ElPolloLoco',
       live: 'https://el-pollo-loco.akleinschmidt.net/'
     },
     {
@@ -24,7 +24,7 @@ export class PortfolioComponent {
       name: 'Join',
       descriptionKey: 'portfolio.projects.join.description',
       tech: ['JavaScript', 'CSS', 'HTML'],
-      github: 'https://github.com/Plepponium/JOIN',
+      github: 'https://github.com/kleinschmidta/JOIN',
       live: 'https://join.akleinschmidt.net/'
     },
     {
@@ -32,7 +32,7 @@ export class PortfolioComponent {
       name: 'DABubble',
       descriptionKey: 'portfolio.projects.dabubble.description',
       tech: ['HTML', 'CSS', 'Firebase', 'TypeScript'],
-      github: 'https://github.com/Plepponium/DABubble',
+      github: 'https://github.com/kleinschmidta/DABubble',
       live: 'https://dabubble.akleinschmidt.net/'
     }
   ];
