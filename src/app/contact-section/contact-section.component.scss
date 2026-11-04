@@ -1,0 +1,444 @@
+@use "../../variables" as *;
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#contact {
+  position: relative;
+  overflow: hidden;
+  padding-top: 120px;
+  scroll-margin-top: 110px;
+
+  // -200px up to 1440px, then fixed relative to the centred content (fully visible from 1840px)
+  .shadow {
+    position: absolute;
+    top: 0;
+    right: max(-200px, calc(50% - 920px));
+    z-index: -1;
+    height: 1314px;
+    width: auto;
+  }
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  justify-self: flex-end;
+  gap: 24px;
+  width: 50%;
+
+  h2 {
+    font-size: 90px;
+    color: white;
+  }
+}
+
+.line {
+  height: 4px;
+  width: 100%;
+  background-color: $green;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.contact-content {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px 200px;
+  gap: 64px;
+  position: relative;
+
+  .arrow-up {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    bottom: 50px;
+    right: 100px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: filter 125ms ease-in-out;
+
+      &:hover {
+        filter: invert(0) sepia(94%) saturate(7454%) hue-rotate(33deg)
+          brightness(93%) contrast(94%);
+      }
+    }
+  }
+}
+
+.text-container,
+.form-container {
+  flex: 1;
+}
+
+.text-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  p {
+    font-size: 20px;
+    text-align: justify;
+  }
+}
+
+.text-headline {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 32px;
+  position: relative;
+
+  h3 {
+    font-size: 30px;
+  }
+}
+
+// grows with the screen above 1440px so it still reaches the left edge
+.text-line {
+  --line-w: max(100px, calc(50vw - 620px));
+  width: var(--line-w);
+  background-color: $lightblue;
+  position: absolute;
+  left: calc(-1 * var(--line-w) - 24px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &.valid {
+    .input-status-icon {
+      background-image: url("/assets/images/icons/valid.png");
+    }
+  }
+
+  &.invalid {
+    .input-status-icon {
+      background-image: url("/assets/images/icons/invalid.png");
+    }
+  }
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 15px 45px 15px 25px;
+  border: 1px solid $purple;
+  border-radius: 10px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: $darkblue;
+  font-size: 16px;
+  color: white;
+  resize: none;
+
+  &:hover {
+    border-color: $lightblue !important;
+  }
+
+  &:focus {
+    border-color: gray !important;
+  }
+
+  &::placeholder {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &.valid {
+    border-color: $green !important;
+  }
+
+  &.invalid {
+    border-color: $red !important;
+  }
+}
+
+.checkbox-group {
+  width: fit-content;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox-visual {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/assets/images/icons/unchecked.png");
+}
+
+.custom-checkbox input:checked + .checkbox-visual {
+  background-image: url("/assets/images/icons/checked.png");
+}
+
+.custom-checkbox input:focus + .checkbox-visual {
+  outline: 1px solid gray;
+}
+
+.checkbox-text {
+  font-size: 16px;
+  color: white;
+  a {
+    text-decoration: none;
+    color: $purple;
+    // dark halo keeps the purple link readable where it sits on the purple shadow
+    text-shadow:
+      0 0 3px $darkblue,
+      0 0 6px $darkblue,
+      0 0 10px $darkblue,
+      0 0 16px $darkblue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.input-status-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.error-message {
+  min-height: 32px;
+  font-size: 14px;
+  color: $red;
+}
+
+.submit-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+}
+
+.success-message {
+  color: $green;
+  font-size: 16px;
+  padding: 8px 16px;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid $green;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@media (max-width: 1440px) {
+  .headline h2 {
+    font-size: 72px;
+  }
+
+  .text-container p {
+    font-size: 16px;
+  }
+
+  .text-headline h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #contact {
+    padding-top: 80px;
+    scroll-margin-top: 96px;
+
+    .shadow {
+      right: -150px;
+      height: 900px;
+    }
+  }
+
+  // "Contact" starts at the content edge, the line runs to the right screen edge
+  .headline {
+    justify-self: auto;
+    width: 100%;
+    padding-left: 50px;
+    margin-bottom: 40px;
+
+    .line {
+      flex: 1;
+      width: auto;
+    }
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 50px 160px;
+
+    .text-container,
+    .form-container {
+      flex: none;
+    }
+
+    .arrow-up {
+      right: 50px;
+    }
+  }
+
+  .text-headline {
+    white-space: normal;
+  }
+
+  .text-line {
+    --line-w: 26px;
+    left: -50px;
+  }
+
+  .checkbox-group {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #contact {
+    padding-top: 60px;
+    scroll-margin-top: 80px;
+
+    .shadow {
+      height: 700px;
+    }
+  }
+
+  .headline h2 {
+    font-size: 56px;
+  }
+
+  .text-container {
+    gap: 24px;
+
+    p {
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  #contact {
+    padding-top: 48px;
+
+    .shadow {
+      right: -120px;
+      height: 520px;
+    }
+  }
+
+  .headline {
+    gap: 16px;
+    padding-left: 24px;
+    margin-bottom: 32px;
+
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  .contact-content {
+    gap: 32px;
+    padding: 0 24px 120px;
+
+    .arrow-up {
+      width: 40px;
+      height: 40px;
+      right: 24px;
+      bottom: 40px;
+    }
+  }
+
+  .text-headline h3 {
+    font-size: 20px;
+  }
+
+  .text-line {
+    --line-w: 12px;
+    left: -24px;
+  }
+
+  .input-wrapper {
+    input,
+    textarea {
+      padding: 12px 40px 12px 16px;
+      font-size: 14px;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .input-status-icon {
+    top: 12px;
+    right: 12px;
+  }
+
+  // room for two lines so a wrapping message does not make the form jump
+  .error-message {
+    min-height: 36px;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .checkbox-text {
+    font-size: 14px;
+  }
+
+  .submit-section {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .success-message {
+    font-size: 14px;
+  }
+}

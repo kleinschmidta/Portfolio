@@ -1,0 +1,90 @@
+<section id="contact">
+    <div class="headline">
+        <h2 reveal="right">{{ 'contact.title' | t }}</h2>
+        <div class="line"></div>
+    </div>
+    <div class="contact-content">
+        <div class="text-container">
+            <div class="text-headline" reveal="fade">
+                <div class="line text-line"></div>
+                <h3>{{ 'contact.headline' | t }}</h3>
+            </div>
+            <p reveal="fade" [revealDelay]="100">{{ 'contact.text' | t }}</p>
+            <p reveal="fade" [revealDelay]="200">{{ 'contact.needDev' | t }} <strong>{{ 'contact.contactMe' | t }}</strong></p>
+        </div>
+        <div class="form-container" reveal="right" [revealDelay]="150">
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" id="contact-form" novalidate>
+
+                <!-- Name -->
+                <div class="form-group">
+                    <div class="input-wrapper" [class.valid]="isValid('name')" [class.invalid]="isInvalid('name')">
+                        <input type="text" id="name" formControlName="name" [placeholder]="'contact.name' | t" autocomplete="off"
+                            [class.valid]="isValid('name')" [class.invalid]="isInvalid('name')" />
+                        <span class="input-status-icon"></span>
+                    </div>
+                    <div class="error-message">
+                        <span *ngIf="isInvalid('name')">{{ 'contact.errName' | t }}</span>
+                    </div>
+
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <div class="input-wrapper" [class.valid]="isValid('email')" [class.invalid]="isInvalid('email')">
+                        <input type="email" id="email" formControlName="email" [placeholder]="'contact.email' | t"
+                            autocomplete="off" [class.valid]="isValid('email')" [class.invalid]="isInvalid('email')" />
+                        <span class="input-status-icon"></span>
+                    </div>
+                    <div class="error-message">
+                        <span *ngIf="isInvalid('email')">{{ 'contact.errEmail' | t }}</span>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <div class="input-wrapper" [class.valid]="isValid('message')"
+                        [class.invalid]="isInvalid('message')">
+                        <textarea id="message" formControlName="message" rows="5" [placeholder]="'contact.message' | t"
+                            [class.valid]="isValid('message')" [class.invalid]="isInvalid('message')"></textarea>
+                        <span class="input-status-icon"></span>
+                    </div>
+                    <div class="error-message">
+                        <span *ngIf="isInvalid('message')">{{ 'contact.errMessage' | t }}</span>
+                    </div>
+                </div>
+
+                <!-- Privacy -->
+                <div class="form-group checkbox-group">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" formControlName="privacy" />
+                        <span class="checkbox-visual"></span>
+                        <span class="checkbox-text">
+                            {{ 'contact.privacyBefore' | t }} <a routerLink="/privacy" target="_blank">{{ 'contact.privacyLink' | t }}</a> {{ 'contact.privacyAfter' | t }}
+                        </span>
+                    </label>
+                    <div class="error-message">
+                        <span *ngIf="isInvalid('privacy')">{{ 'contact.errPrivacy' | t }}</span>
+                    </div>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="cta-link" [disabled]="form.invalid || sending">{{ 'contact.send' | t }}</button>
+                    <div class="success-message" *ngIf="showSuccess">
+                        {{ 'contact.success' | t }}
+                    </div>
+                    <div class="error-message" *ngIf="showError">
+                        {{ 'contact.failed' | t }}
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+        <a href="#home" class="arrow-up">
+            <img src="/assets/images/icons/go-up.png" alt="Go Up">
+        </a>
+    </div>
+    <img src="/assets/images/shadow-contact.png" alt="Shadow" class="shadow">
+</section>

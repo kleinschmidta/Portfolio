@@ -1,115 +1,226 @@
 {
-  "header": {
-    "aboutMe": "Über mich",
-    "skills": "Fähigkeiten",
+  "nav": {
+    "about": "Über mich",
+    "skills": "Skills",
     "portfolio": "Portfolio",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "top": "Zurück nach oben",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen",
+    "langLabel": "Sprache"
   },
-  "atf": {
-    "intro": "Ich bin",
-    "headline": "Entwickler",
-    "button": "Lass' plaudern!",
-    "vertical": "Scrolle runter"
+  "hero": {
+    "iAm": "Ich bin",
+    "subtitle": "Frontend-Entwickler",
+    "cta": "Hallo sagen!",
+    "scroll": "Nach unten scrollen →"
   },
   "about": {
-    "headline": "Über mich",
-    "introductionText": "Aus eigenem Antrieb habe ich begonnen, mich intensiv mit Technik und Code auseinanderzusetzen – ein guter Freund hat diesen Weg unterstützt, indem er meine Begeisterung erkannte und weiter bestärkte. Probleme mit Code zu lösen fühlt sich für mich an wie ein endloses Puzzle – und genau das fasziniert mich daran. Der ständige Wandel in der Tech-Welt hält mich täglich neugierig und fordert mich immer wieder neu heraus.\n\nLass uns vernetzen und gemeinsam etwas Großartiges schaffen!",
-    "locationText": "Ich bin in Baden-Württemberg ansässig – offen für Remote-Arbeit, aber nicht umzugsbereit.",
-    "learningText": "Ich bin immer neugierig auf neue Technologien und liebe es, meine Fähigkeiten weiterzuentwickeln.",
-    "solvingText": "Bei der Problemlösung experimentiere ich zuerst und verfeinere dann meinen Ansatz. Auch wenn ich oft analytisch alleine arbeite, bin ich immer offen für Teamarbeit, wenn eine Herausforderung meine Fähigkeiten übersteigt. Ich glaube an eine Mischung aus Planung und praxisnahem Arbeiten."
+    "title": "Über mich",
+    "p1": "Aus eigener Neugier habe ich begonnen, mich mit Technik und Programmieren zu beschäftigen – unterstützt von einem guten Freund, der meine Leidenschaft erkannt und gefördert hat. Probleme mit Code zu lösen fühlt sich für mich wie ein endloses Puzzle an – und genau das fasziniert mich. Die sich ständig verändernde Tech-Welt hält mich neugierig und fordert mich immer wieder heraus.",
+    "p2": "Lassen Sie uns in Kontakt treten und gemeinsam etwas Großartiges schaffen!",
+    "items": [
+      "Wohnhaft in Baden-Württemberg – ich bin offen für Remote-Arbeit, möchte aber nicht umziehen.",
+      "Ich bin immer neugierig auf neue Technologien und möchte meine Fähigkeiten stetig weiterentwickeln.",
+      "Bei Problemen beginne ich meist mit Experimentieren und verfeinere meinen Ansatz. Ich arbeite oft analytisch allein, bin aber jederzeit offen für Zusammenarbeit, wenn eine Aufgabe meine Fähigkeiten übersteigt. Ich glaube an eine Mischung aus Planung und praktischem Problemlösen, um die effektivsten Lösungen zu finden."
+    ]
   },
   "skills": {
-    "headline": "Fähigkeiten",
-    "description": "Ich habe wertvolle Erfahrungen in verschiedenen Projekten mit modernen Frontend-Technologien wie HTML, CSS und JavaScript gesammelt. Ich bin immer offen dafür, neue Tools und Frameworks zu lernen und anzuwenden. Kontinuierliches Lernen ist für mich der Schlüssel, um mit der schnelllebigen Welt der Webentwicklung Schritt zu halten.",
-    "subheadline": "Auf der Suche nach ",
-    "highlight": "weiteren Fähigkeiten",
-    "followup": "Ich bin immer neugierig auf neue Technologien und Frameworks, um meine Fähigkeiten weiter auszubauen.",
-    "button": "Kontaktiere mich"
+    "title": "Skills",
+    "learn": "Immer am Lernen",
+    "text": "Ich habe wertvolle Erfahrung in verschiedenen Projekten mit modernen Frontend-Technologien wie HTML, CSS und JavaScript gesammelt. Ich bin stets offen dafür, neue Tools und Frameworks zu lernen und mich anzupassen. Kontinuierliches Lernen ist für mich der Schlüssel, um in der schnelllebigen Welt der Webentwicklung Schritt zu halten.",
+    "lookingFor": "Suchen Sie",
+    "anotherSkill": "einen anderen Skill",
+    "followup": "Ich erkunde stets gerne neue Technologien und Frameworks, um meine Fähigkeiten zu erweitern.",
+    "cta": "Kontakt aufnehmen"
   },
   "portfolio": {
-    "description": "Entdecke eine Auswahl meiner Arbeiten – Interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen",
+    "title": "Portfolio",
+    "intro": "Hier finden Sie eine Auswahl meiner Arbeiten. Probieren Sie die Projekte aus und sehen Sie meine Fähigkeiten in Aktion.",
+    "recent": "Aktuelle Projekte",
+    "years": "2024-2026",
+    "github": "Github",
+    "live": "Live-Test",
+    "modalBefore": "Worum geht es bei",
+    "modalAfter": "?",
     "projects": {
-      "elpollo": {
-        "description": "Jump-, Run- und Wurfspiel basierend auf objektorientiertem Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen."
+      "join": "Eine einfache und intuitive Aufgabenverwaltung, entwickelt mit Angular und Firebase. Nutzer können Aufgaben erstellen, organisieren und verfolgen – für ein produktives Arbeiten ohne Umwege.",
+      "elpolloloco": "Ein Jump-, Run- und Wurfspiel mit objektorientiertem Ansatz. Pepe muss Münzen und Tabasco-Salsa finden, um gegen die verrückte Henne zu kämpfen.",
+      "dabubble": "Eine Echtzeit-Chat-Anwendung, entwickelt mit Angular und Firebase. Nutzer können Konten erstellen, Chaträumen beitreten und Nachrichten sofort austauschen – für ein nahtloses Kommunikationserlebnis."
+    },
+    "reviewsTitle": "Das sagen Kollegen über mich",
+    "reviews": [
+      {
+        "text": "Adrian ist ein verlässlicher Mensch, mit dem ich sehr gerne am Projekt gearbeitet habe. Auch in stressigen Situationen behält er einen kühlen Kopf und hat immer ein offenes Ohr, wenn es mal hakt. Danke für die angenehme Zusammenarbeit!",
+        "author": "Andreas R.",
+        "role": "Teammitglied (JOIN)"
       },
-      "join": {
-        "description": "Aufgabenmanager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag & Drop, weise Benutzer und Kategorien zu."
-      },
-      "dabubble": {
-        "description": "Eine Echtzeit-Chat-Anwendung, entwickelt mit Angular und Firebase. Sie ermöglicht Nutzern, Konten zu erstellen, Chaträumen beizutreten und Nachrichten sofort auszutauschen und bietet so ein nahtloses Kommunikationserlebnis."
+      {
+        "text": "Zuverlässig und fachlich interessiert. Arbeitet sich eigenständig in Themen ein. Auch im Team eine Bereicherung.",
+        "author": "Carla H.",
+        "role": "Teammitglied (DABubble)"
       }
-    }
+    ]
   },
   "contact": {
-    "headline": "Kontakt",
-    "problemHeadline": "Es gibt ein Problem zu lösen?",
-    "introText": "Ich freue mich, durch meine Arbeit einen Mehrwert für deine Projekte zu schaffen – melde dich gerne, wenn du eine engagierte Teamkraft suchst, besonders im Frontend- oder kreativen Entwicklungsbereich.",
-    "needDev": "Suchst du einen Frontend-Entwickler?",
-    "contactMe": "Kontaktiere mich!",
-
-    "form": {
-      "namePlaceholder": "Dein Name",
-      "nameError": "Bitte gib deinen Vor- und Nachnamen ein",
-
-      "emailPlaceholder": "Deine E-Mail",
-      "emailError": "Bitte gib eine gültige E-Mail-Adresse ein",
-
-      "messagePlaceholder": "Deine Nachricht",
-      "messageError": "Bitte gib mindestens 4 Zeichen ein",
-
-      "privacyTextPart1": "Ich habe die",
-      "privacyLinkText": "Datenschutzerklärung",
-      "privacyTextPart2": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu",
-      "privacyError": "Bitte stimme der Datenschutzerklärung zu",
-
-      "submitBtn": "Nachricht senden :)"
-    }
+    "title": "Kontakt",
+    "headline": "Gibt es ein Problem zu lösen?",
+    "text": "Ich freue mich darauf, mit meiner Arbeit einen Mehrwert für Ihre Projekte zu schaffen – melden Sie sich gerne, wenn Sie ein engagiertes Teammitglied suchen, insbesondere im Frontend- oder Creative-Development-Bereich.",
+    "needDev": "Sie brauchen einen Frontend-Entwickler?",
+    "contactMe": "Kontaktieren Sie mich!",
+    "name": "Ihr Name",
+    "email": "Ihre E-Mail",
+    "message": "Ihre Nachricht",
+    "errName": "Bitte geben Sie Ihren Vor- und Nachnamen ein",
+    "errEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "errMessage": "Bitte geben Sie mindestens 10 Zeichen ein",
+    "errPrivacy": "Bitte stimmen Sie der Datenschutzerklärung zu",
+    "privacyBefore": "Ich habe die",
+    "privacyLink": "Datenschutzerklärung",
+    "privacyAfter": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu",
+    "send": "Nachricht senden :)",
+    "success": "Nachricht erfolgreich gesendet! 🎉",
+    "failed": "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut oder schreiben Sie mir eine E-Mail."
   },
-
+  "footer": {
+    "top": "Zurück nach oben",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "legal": {
+    "back": "Zurück zur Startseite",
+    "home": "Zur Startseite"
+  },
   "imprint": {
-    "title": "Impressum",
-    "purpose": "Diese Website dient ausschließlich privaten Zwecken, insbesondere als digitale Bewerbungsunterlage. Es erfolgt kein kommerzielles Angebot, keine Werbung, kein Verkauf. Auf Wunsch übermittle ich vollständige Kontaktinformationen direkt auf Anfrage.",
-    "lastUpdate": "Letzte Aktualisierung: Juli 2025",
-    "provider": {
-      "head": "Angaben gemäß § 5 TMG",
-      "name": "Adrian Kleinschmidt",
-      "location": "Freiburg im Breisgau, Deutschland"
-    },
-    "contact": { "head": "Kontakt" },
-    "broadcast": { "head": "Verantwortlich i. S. d. § 55 Abs. 2 RStV" },
-    "hosting": {
-      "head": "Hosting-Dienstleister",
-      "location": "Friedersdorf, Deutschland"
-    },
-    "os": {
-      "head": "EU-Streitschlichtung",
-      "text": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr."
-    }
+    "notice": "Diese Website ist ein <strong>rein privates, nicht kommerzielles Angebot</strong> und dient <strong>ausschließlich Bewerbungszwecken</strong>. Sie präsentiert persönliche Projekte und Fähigkeiten gegenüber potenziellen Arbeitgebern. Es werden keine Waren oder Dienstleistungen angeboten und keine Werbung geschaltet.",
+    "stand": "Stand: November 2026",
+    "sections": [
+      {
+        "heading": "Angaben gemäß § 5 DDG",
+        "blocks": [
+          "Adrian Kleinschmidt<br>[Straße und Hausnummer]<br>79114 Freiburg im Breisgau<br>Deutschland"
+        ]
+      },
+      {
+        "heading": "Kontakt",
+        "blocks": [
+          "E-Mail: <a href=\"mailto:kontakt@akleinschmidt.net\">kontakt@akleinschmidt.net</a><br>Alternativ erreichen Sie mich über das <a href=\"/#contact\" class=\"to-contact\">Kontaktformular</a> dieser Website."
+        ]
+      },
+      {
+        "heading": "Verantwortlich für den Inhalt",
+        "blocks": [
+          "Verantwortlich im Sinne des § 18 Abs. 2 MStV:<br>Adrian Kleinschmidt, Anschrift wie oben."
+        ]
+      },
+      {
+        "heading": "Haftung für Inhalte",
+        "blocks": [
+          "Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach den §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+          "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen werde ich diese Inhalte umgehend entfernen."
+        ]
+      },
+      {
+        "heading": "Haftung für Links",
+        "blocks": [
+          "Diese Website enthält Links zu externen Websites Dritter, zum Beispiel zu Quellcode-Repositories auf GitHub. Auf deren Inhalte habe ich keinen Einfluss. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen."
+        ]
+      },
+      {
+        "heading": "Urheberrecht",
+        "blocks": [
+          "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.",
+          "Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen."
+        ]
+      }
+    ],
+    "title": "Impressum"
   },
-
   "privacy": {
-    "title": "Datenschutzerklärung",
-    "intro": "Diese Datenschutzerklärung informiert Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten innerhalb dieser Website.",
-    "controller": { "head": "Verantwortlicher" },
-    "contactForm": {
-      "head": "Kontaktformular",
-      "text": "Wenn Sie uns über das Formular kontaktieren, verarbeiten wir Name, E-Mail-Adresse und Ihre Nachricht ausschließlich zur Bearbeitung Ihrer Anfrage."
-    },
-    "rights": {
-      "head": "Ihre Rechte",
-      "access": "Auskunft nach Art. 15 DSGVO",
-      "delete": "Löschung nach Art. 17 DSGVO",
-      "correct": "Berichtigung nach Art. 16 DSGVO",
-      "restrict": "Einschränkung nach Art. 18 DSGVO",
-      "complain": "Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)"
-    },
-    "hosting": {
-      "head": "Hosting",
-      "text": "Diese Website wird bei ALL‑INKL.COM (Hauptstraße 68, 02742 Friedersdorf) gehostet. Alle Daten werden ausschließlich auf Servern in Deutschland verarbeitet."
-    },
-    "github": {
-      "head": "Externes GitHub-Link-Icon",
-      "text": "Durch Klick auf das GitHub-Icon verlassen Sie diese Website und werden zu github.com weitergeleitet. Für dortige Datenverarbeitungen ist GitHub Inc. verantwortlich."
-    }
+    "notice": "Diese Website ist ein <strong>rein privates, nicht kommerzielles Angebot</strong> und dient <strong>ausschließlich Bewerbungszwecken</strong>. Der Schutz Ihrer personenbezogenen Daten ist mir wichtig. Nachfolgend informiere ich Sie gemäß Art. 13 DSGVO darüber, welche Daten beim Besuch der Website und bei der Kontaktaufnahme verarbeitet werden.",
+    "stand": "Stand: November 2026",
+    "sections": [
+      {
+        "heading": "1. Verantwortlicher",
+        "blocks": [
+          "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:",
+          "Adrian Kleinschmidt<br>[Straße und Hausnummer]<br>79114 Freiburg im Breisgau<br>Deutschland<br>E-Mail: <a href=\"mailto:kontakt@akleinschmidt.net\">kontakt@akleinschmidt.net</a>"
+        ]
+      },
+      {
+        "heading": "2. Überblick: Welche Daten werden verarbeitet?",
+        "blocks": [
+          [
+            "Zugriffsdaten (Server-Logfiles) beim Aufruf der Website,",
+            "Angaben, die Sie über das Kontaktformular oder per E-Mail an mich senden."
+          ],
+          "Diese Website setzt <strong>keine Cookies</strong>, bindet <strong>keine Analyse-, Tracking- oder Werbedienste</strong> ein und lädt <strong>keine Schriftarten oder Skripte von Drittservern</strong>. Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling statt.",
+          "Ihre Sprachauswahl wird lokal in Ihrem Browser (Local Storage) gespeichert, damit sie beim nächsten Besuch erhalten bleibt. Diese Information wird nicht an mich oder Dritte übertragen."
+        ]
+      },
+      {
+        "heading": "3. Hosting und Server-Logfiles",
+        "blocks": [
+          "Diese Website wird bei ALL‑INKL.COM (Hauptstraße 68, 02742 Friedersdorf) gehostet. Beim Aufruf der Website erhebt der Server automatisch Daten, die Ihr Browser übermittelt. Das sind insbesondere:",
+          [
+            "IP-Adresse,",
+            "Datum und Uhrzeit der Anfrage,",
+            "aufgerufene Seite bzw. Datei und übertragene Datenmenge,",
+            "Browsertyp und -version, Betriebssystem,",
+            "Referrer-URL (zuvor besuchte Seite)."
+          ],
+          "Die Verarbeitung ist erforderlich, um die Website auszuliefern und ihre Stabilität und Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und fehlerfreien Betrieb). Die Logdaten werden vom Hosting-Anbieter nur so lange gespeichert, wie es für diesen Zweck erforderlich ist, und anschließend gelöscht. Mit dem Hosting-Anbieter besteht, soweit erforderlich, ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO."
+        ]
+      },
+      {
+        "heading": "4. Kontaktformular und Kontakt per E-Mail",
+        "blocks": [
+          "Wenn Sie das Kontaktformular nutzen, werden Ihr Name, Ihre E-Mail-Adresse und Ihre Nachricht verarbeitet. Die Nachricht wird über den Server dieser Website per E-Mail an mich weitergeleitet. Eine Weitergabe an Drittanbieter findet nicht statt. Dasselbe gilt, wenn Sie mir direkt eine E-Mail schreiben.",
+          "Ich verwende Ihre Angaben ausschließlich, um Ihre Anfrage zu bearbeiten und mit Ihnen in Kontakt zu treten, etwa im Zusammenhang mit einer Bewerbung. Rechtsgrundlagen sind Art. 6 Abs. 1 lit. b DSGVO, soweit die Anfrage der Anbahnung eines Vertragsverhältnisses dient, sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Mit dem Setzen des Häkchens im Formular bestätigen Sie, die Datenschutzerklärung zur Kenntnis genommen zu haben und der Verarbeitung Ihrer Angaben zuzustimmen (Art. 6 Abs. 1 lit. a DSGVO). Diese Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen.",
+          "Ihre Angaben werden gelöscht, sobald Ihre Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Die Angabe der Daten ist freiwillig, ohne sie kann ich Ihre Anfrage über das Formular jedoch nicht beantworten."
+        ]
+      },
+      {
+        "heading": "5. Externe Links",
+        "blocks": [
+          "Diese Website enthält Links zu externen Seiten, zum Beispiel zu GitHub (Quellcode) und zu den Live-Demonstrationen meiner Projekte. Erst wenn Sie einen Link anklicken, werden Daten (etwa Ihre IP-Adresse) an den jeweiligen Anbieter übertragen. Auf die dortige Datenverarbeitung habe ich keinen Einfluss. Bitte beachten Sie die Datenschutzhinweise der jeweiligen Anbieter."
+        ]
+      },
+      {
+        "heading": "6. Verschlüsselung",
+        "blocks": [
+          "Aus Sicherheitsgründen nutzt diese Website eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile Ihres Browsers."
+        ]
+      },
+      {
+        "heading": "7. Ihre Rechte",
+        "blocks": [
+          "Sie haben gegenüber mir als Verantwortlichem folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:",
+          [
+            "Auskunft (Art. 15 DSGVO),",
+            "Berichtigung (Art. 16 DSGVO),",
+            "Löschung (Art. 17 DSGVO),",
+            "Einschränkung der Verarbeitung (Art. 18 DSGVO),",
+            "Datenübertragbarkeit (Art. 20 DSGVO),",
+            "Widerspruch gegen die Verarbeitung auf Grundlage berechtigter Interessen (Art. 21 DSGVO)."
+          ],
+          "Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3 DSGVO). Wenden Sie sich dazu einfach an <a href=\"mailto:kontakt@akleinschmidt.net\">kontakt@akleinschmidt.net</a>."
+        ]
+      },
+      {
+        "heading": "8. Beschwerderecht bei der Aufsichtsbehörde",
+        "blocks": [
+          "Unbeschadet anderer Rechtsbehelfe haben Sie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO). Zuständig ist die Aufsichtsbehörde des Bundeslandes, in dem ich meinen Wohnsitz habe: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg: Prof. Dr. Tobias Keber (Heilbronner Straße 35, 70191 Stuttgart). Eine Übersicht aller Behörden finden Sie auf der Seite des <a href=\"https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html\" target=\"_blank\" rel=\"noopener\">Bundesbeauftragten für den Datenschutz und die Informationsfreiheit</a>."
+        ]
+      },
+      {
+        "heading": "9. Aktualität dieser Erklärung",
+        "blocks": [
+          "Ich passe diese Datenschutzerklärung an, wenn sich die Website oder die rechtlichen Vorgaben ändern. Es gilt die jeweils hier veröffentlichte Fassung."
+        ]
+      }
+    ],
+    "title": "Datenschutzerklärung"
   }
 }

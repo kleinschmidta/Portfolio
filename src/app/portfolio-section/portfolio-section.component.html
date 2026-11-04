@@ -1,0 +1,127 @@
+<section id="portfolio">
+    <div class="headline">
+        <div class="line"></div>
+        <h2 reveal="left">{{ 'portfolio.title' | t }}</h2>
+    </div>
+    <div class="portfolio-content">
+        <p>{{ 'portfolio.intro' | t }}</p>
+        <div class="projects-header">
+            <h3>{{ 'portfolio.recent' | t }}</h3>
+            <h3>{{ 'portfolio.years' | t }}</h3>
+        </div>
+
+        <!-- Link buttons, shared by the modal and the cards on small screens -->
+        <ng-template #projectLinks let-project>
+            <div class="item-links">
+                <a class="github-link" [href]="project.github" target="_blank" rel="noopener">
+                    {{ 'portfolio.github' | t }}
+                    <img src="/assets/images/icons/github.png" alt="Source Code">
+                </a>
+                <a [href]="project.live" target="_blank" rel="noopener" [title]="'portfolio.live' | t">
+                    {{ 'portfolio.live' | t }}
+                    <img src="/assets/images/icons/open-in-new.png" alt="Open in new tab">
+                </a>
+            </div>
+        </ng-template>
+
+        <!-- Desktop: list with hover preview and info modal -->
+        <div class="project-list">
+            <div class="project-item" #projectItem *ngFor="let project of projects"
+                (click)="openInfoModal(project); $event.stopPropagation()">
+                <div class="project-name">
+                    <h4>{{ project.name }}</h4>
+                    <div class="info">
+                        <img src="/assets/images/icons/info.png" alt="Project Information">
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img [src]="'/assets/images/' + project.img + '.png'" [alt]="project.name">
+                </div>
+
+                <div class="item-right">
+                    <span class="languages">
+                        {{ project.languages.join(' | ') }}
+                    </span>
+                </div>
+                <div class="line-separator"></div>
+            </div>
+            <div *ngIf="showInfoModal" class="info-modal-backdrop" (click)="closeInfoModal()">
+                <div class="info-modal" (click)="$event.stopPropagation()">
+                    <div class="info-modal-content">
+                        <div class="modal-header">
+                            <h5>{{ 'portfolio.modalBefore' | t }} <span>{{ selectedProject?.name }}</span>{{ 'portfolio.modalAfter' | t }}</h5>
+                            <button (click)="closeInfoModal()">
+                                <img src="/assets/images/icons/close.png" alt="Close">
+                            </button>
+                        </div>
+
+                        <div class="modal-content">
+                            <div class="modal-left">
+                                <p>{{ 'portfolio.projects.' + selectedProject?.img | t }}</p>
+                                <ng-container *ngTemplateOutlet="projectLinks; context: { $implicit: selectedProject }">
+                                </ng-container>
+                            </div>
+                            <div class="modal-right">
+                                <img [src]="'/assets/images/' + selectedProject?.img + '.png'"
+                                    [alt]="selectedProject?.name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tablet / mobile: the modal content is shown directly, no hover or click needed -->
+        <div class="project-cards">
+            <article class="project-detail" *ngFor="let project of projects">
+                <div class="detail-head">
+                    <h4>{{ project.name }}</h4>
+                    <span class="languages">{{ project.languages.join(' | ') }}</span>
+                </div>
+                <img class="detail-img" [src]="'/assets/images/' + project.img + '.png'" [alt]="project.name">
+                <p class="detail-text">{{ 'portfolio.projects.' + project.img | t }}</p>
+                <div class="detail-links">
+                    <ng-container *ngTemplateOutlet="projectLinks; context: { $implicit: project }"></ng-container>
+                </div>
+            </article>
+        </div>
+
+        <div class="reviews" reveal>
+            <h3>{{ 'portfolio.reviewsTitle' | t }}</h3>
+
+            <div class="slideshow" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+                (touchend)="onTouchEnd()" (touchcancel)="onTouchEnd()">
+                <img src="/assets/images/speechmark.png" alt="Speech Mark" class="speech-mark">
+
+                <div class="cards-container" [class.dragging]="isDragging" #cardsContainer>
+                    <div class="review-card" *ngFor="let review of reviews; let i = index"
+                        [class.active]="i === currentIndex">
+                        <p>{{ review.text }}</p>
+                        <div class="card-author">
+                            <div class="line"></div>
+                            <div class="author-info">
+                                <h6>{{ review.author }}</h6>
+                                <span>&nbsp;-&nbsp;{{ review.role }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button (click)="scrollLeft()">
+                    <img src="/assets/images/icons/arrow-down.svg" alt="Scroll Left" class="scroll-left">
+                </button>
+                <div class="dots">
+                    <div *ngFor="let review of reviews; let i = index" class="dot" [class.active]="i === currentIndex"
+                        (click)="goToSlide(i)">
+                    </div>
+                </div>
+                <button (click)="scrollRight()">
+                    <img src="/assets/images/icons/arrow-down.svg" alt="Scroll Right" class="scroll-right">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

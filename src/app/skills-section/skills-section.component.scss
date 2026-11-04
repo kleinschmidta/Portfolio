@@ -1,0 +1,199 @@
+@use "../../variables" as *;
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+section {
+  position: relative;
+  z-index: 10;
+  scroll-margin-top: 110px;
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+
+  h2 {
+    font-size: 90px;
+    color: white;
+  }
+}
+
+// grows with the screen above 1440px so "Skills" stays aligned with the content edge
+.line {
+  flex-shrink: 0;
+  height: 4px;
+  width: max(100px, calc(50% - 620px));
+  background-color: $lightblue;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.skills-content {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px 120px;
+  gap: 40px;
+  align-items: start;
+}
+
+.text-container,
+.icon-container {
+  flex: 1 1 0;
+}
+
+.icon-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.skill-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+
+  .icon-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+  }
+}
+
+.skill-icon:not(.learn-icon) .icon-img:hover {
+  animation: bounce 0.8s;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 20px;
+  gap: 32px;
+}
+
+.skill-followup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 30px;
+
+    span {
+      color: $purple;
+      filter: brightness(1.2) saturate(1.5);
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .headline h2 {
+    font-size: 72px;
+  }
+
+  .text-container {
+    font-size: 16px;
+  }
+
+  .skill-followup h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    scroll-margin-top: 96px;
+  }
+
+  // "Skills" on the left, line runs to the right padding
+  .headline {
+    justify-content: flex-start;
+    padding: 0 50px;
+  }
+
+  .line {
+    flex: 1;
+    border-radius: 2px;
+  }
+
+  // order: text, icons, follow-up (text-container's children join the column)
+  .skills-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    padding: 0 50px 80px;
+  }
+
+  .text-container {
+    display: contents;
+  }
+
+  .icon-container {
+    order: 1;
+  }
+
+  .skill-followup {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 80px;
+  }
+
+  .headline h2 {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    padding: 0 24px;
+  }
+
+  .headline h2 {
+    font-size: 40px;
+  }
+
+  .skills-content {
+    padding: 0 24px 60px;
+  }
+
+  .icon-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 8px;
+  }
+
+  .skill-icon .icon-label {
+    font-size: 14px;
+    hyphens: auto;
+  }
+
+  .skill-followup h3 {
+    font-size: 20px;
+  }
+}

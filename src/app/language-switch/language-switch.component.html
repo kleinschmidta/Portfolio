@@ -1,0 +1,4 @@
+<div class="language-btns" role="group" [attr.aria-label]="'nav.langLabel' | t">
+    <button type="button" lang="de" [class.active]="i18n.lang() === 'de'" (click)="i18n.setLang('de')">DE</button>
+    <button type="button" lang="en" [class.active]="i18n.lang() === 'en'" (click)="i18n.setLang('en')">EN</button>
+</div>

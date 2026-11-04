@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { LegalShellComponent } from '../legal-shell/legal-shell.component';
 
 @Component({
   selector: 'app-privacy',
-  imports: [TranslateModule],
-  standalone: true,
-  templateUrl: './privacy.component.html',
-  styleUrls: ['./privacy.component.scss']
+  imports: [LegalShellComponent],
+  template: '<app-legal-shell doc="privacy"></app-legal-shell>'
 })
-export class PrivacyComponent {
-
-}
+export class PrivacyComponent {}

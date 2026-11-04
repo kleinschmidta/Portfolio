@@ -1,0 +1,30 @@
+<section id="home">
+    <div class="hero-content">
+        <div class="title-wrapper">
+            <p class="title-extension">{{ 'hero.iAm' | t }}</p>
+            <div class="title-container">
+                <h1 class="title">Adrian Kleinschmidt</h1>
+                <div class="subtitle-wrapper">
+                    <h2 class="subtitle" [attr.aria-label]="subtitle">
+                        <span aria-hidden="true">{{ typedText }}</span>
+                        <span class="caret" [class.blinking]="typingDone" aria-hidden="true"></span>
+                        <span class="untyped" aria-hidden="true">{{ remainingText }}</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <a href="#contact" class="cta-link">{{ 'hero.cta' | t }}</a>
+    </div>
+    <div class="animated-indicator">
+        <p>{{ 'hero.scroll' | t }}</p>
+    </div>
+    <div class="socials">
+        <div class="line"></div>
+        <a href="https://github.com/kleinschmidta" target="_blank" class="social-btn"><img
+                src="/assets/images/icons/github.png" alt="GitHub"></a>
+        <a href="mailto:kontakt@akleinschmidt.net" class="social-btn"><img src="/assets/images/icons/mail.png"
+                alt="Email"></a>
+    </div>
+    <img src="/assets/images/shadow-purple.png" alt="" class="shadow left">
+    <img src="/assets/images/shadow-blue.png" alt="" class="shadow right">
+</section>

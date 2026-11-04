@@ -1,114 +1,228 @@
 {
-  "header": {
-    "aboutMe": "About me",
+  "nav": {
+    "about": "About Me",
     "skills": "Skills",
     "portfolio": "Portfolio",
-    "contact": "Contact"
+    "contact": "Contact",
+    "top": "Back to top",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "langLabel": "Language"
   },
-  "atf": {
-    "intro": "I am",
-    "headline": "Developer",
-    "button": "Let's talk!",
-    "vertical": "Scroll down"
+  "hero": {
+    "iAm": "I am",
+    "subtitle": "Frontend Developer",
+    "cta": "Say Hello!",
+    "scroll": "Scroll down →"
   },
   "about": {
-    "headline": "About me",
-    "introductionText": "Driven by my own curiosity, I started diving into technology and coding – supported by a good friend who recognized and encouraged my passion. Solving problems through code feels like an endless puzzle to me – and that’s exactly what fascinates me. The ever-changing tech world keeps me curious and constantly challenged.\n\nLet’s connect and create something great together!",
-    "locationText": "Based in Baden-Württemberg – I'm open to remote work, but not looking to relocate.",
-    "learningText": "I'm always curious to explore new technologies and love pushing my skills to the next level.",
-    "solvingText": "When tackling problems, I usually start by experimenting and refining my approach. While I often work analytically on my own, I’m always open to collaborating with others when a challenge goes beyond my skill set. I believe in a mix of planning and hands-on problem solving to find the most effective solutions."
+    "title": "About Me",
+    "p1": "Driven by my own curiosity, I started diving into technology and coding – supported by a good friend who recognized and encouraged my passion. Solving problems through code feels like an endless puzzle to me – and that’s exactly what fascinates me. The ever-changing tech world keeps me curious and constantly challenged.",
+    "p2": "Let’s connect and create something great together!",
+    "items": [
+      "Based in Baden-Württemberg – I'm open to remote work, but not looking to relocate.",
+      "I'm always curious to explore new technologies and love pushing my skills to the next level.",
+      "When tackling problems, I usually start by experimenting and refining my approach. While I often work analytically on my own, I’m always open to collaborating with others when a challenge goes beyond my skill set. I believe in a mix of planning and hands-on problem solving to find the most effective solutions."
+    ]
   },
   "skills": {
-    "headline": "Skills",
-    "description": "I have gained valuable experience working on a variety of projects using modern front-end technologies like HTML, CSS, and JavaScript. I’m always open to learning and adapting to new tools and frameworks. I believe that continuous learning is key to keeping up with the fast-paced world of web development.",
-    "subheadline": "Looking for ",
-    "highlight": "another skill",
+    "title": "Skills",
+    "learn": "Continually learning",
+    "text": "I have gained valuable experience working on a variety of projects using modern front-end technologies like HTML, CSS, and JavaScript. I’m always open to learning and adapting to new tools and frameworks. I believe that continuous learning is key to keeping up with the fast-paced world of web development.",
+    "lookingFor": "Looking for",
+    "anotherSkill": "another skill",
     "followup": "I'm always eager to explore new technologies and frameworks to expand my capabilities.",
-    "button": "Get in touch"
+    "cta": "Get In Touch"
   },
   "portfolio": {
-    "description": "Explore a selection of my work here – Interact with projects to see my skills in action",
+    "title": "Portfolio",
+    "intro": "Explore a selection of my work here. Interact with projects to see my skills in action",
+    "recent": "Recent Projects",
+    "years": "2024-2026",
+    "github": "Github",
+    "live": "Live Test",
+    "modalBefore": "What is",
+    "modalAfter": " about?",
     "projects": {
-      "elpollo": {
-        "description": "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen."
+      "join": "A simple and intuitive task management app built with Angular and Firebase. It allows users to create, organize, and track their tasks efficiently, providing a seamless experience for staying productive.",
+      "elpolloloco": "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
+      "dabubble": "A real-time chat application built with Angular and Firebase. It allows users to create accounts, join chat rooms, and exchange messages instantly, providing a seamless communication experience."
+    },
+    "reviewsTitle": "What my colleagues say about me",
+    "reviews": [
+      {
+        "text": "Adrian is a reliable person with whom I very much enjoyed working on the project. Even in stressful situations, he keeps a cool head and is always ready to listen when things get stuck. Thank you for the pleasant collaboration!",
+        "author": "Andreas R.",
+        "role": "Team Partner (JOIN)"
       },
-      "join": {
-        "description": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories."
-      },
-      "dabubble": {
-        "description": "A real-time chat application developed with Angular and Firebase. It allows users to create accounts, join chat rooms, and exchange messages instantly, providing a seamless communication experience."
+      {
+        "text": "Reliable and professionally interested. Independently familiarizes himself with topics. Also an asset to teamwork.",
+        "author": "Carla H.",
+        "role": "Team Partner (DABubble)"
       }
-    }
+    ]
   },
   "contact": {
-    "headline": "Contact",
-    "problemHeadline": "Got a problem to solve?",
-    "introText": "I'm excited to bring value to your projects through my work—feel free to reach out if you're looking for a dedicated team member, especially in a front-end or creative development role.",
+    "title": "Contact",
+    "headline": "Got a problem to solve?",
+    "text": "I'm excited to bring value to your projects through my work—feel free to reach out if you're looking for a dedicated team member, especially in a front-end or creative development role.",
     "needDev": "Need a Frontend developer?",
     "contactMe": "Contact me!",
-
-    "form": {
-      "namePlaceholder": "Your name",
-      "nameError": "Please enter your first name and last name",
-
-      "emailPlaceholder": "Your email",
-      "emailError": "Please enter a valid e-mail address",
-
-      "messagePlaceholder": "Your message",
-      "messageError": "Please enter at least 4 characters",
-      "privacyTextPart1": "I've read the",
-      "privacyLinkText": "privacy policy",
-      "privacyTextPart2": "and agree to the processing of my data as outlined",
-      "privacyError": "Please agree to the privacy policy",
-
-      "submitBtn": "Send message :)"
-    }
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "errName": "Please enter your first and last name",
+    "errEmail": "Please enter a valid email address",
+    "errMessage": "Please enter at least 10 characters",
+    "errPrivacy": "Please agree to the privacy policy",
+    "privacyBefore": "I've read the",
+    "privacyLink": "privacy policy",
+    "privacyAfter": "and agree to the processing of my data as outlined",
+    "send": "Send Message :)",
+    "success": "Message sent successfully! 🎉",
+    "failed": "Sending failed. Please try again later or write me an email."
   },
-
+  "footer": {
+    "top": "Back to top",
+    "imprint": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved."
+  },
+  "legal": {
+    "back": "Back to Homepage",
+    "home": "Back to homepage"
+  },
   "imprint": {
     "title": "Legal Notice",
-    "purpose": "This website is intended exclusively for private use, primarily as a digital application document. It does not contain any commercial offers, advertisements, or sales. If you wish, I will provide full contact information directly upon request.",
-    "lastUpdate": "Last update: July 2025",
-    "provider": {
-      "head": "Information pursuant to § 5 TMG",
-      "name": "Adrian Kleinschmidt",
-      "location": "Freiburg im Breisgau, Germany "
-    },
-    "contact": { "head": "Contact" },
-    "broadcast": { "head": "Responsible according to § 55 RStV" },
-    "hosting": {
-      "head": "Hosting Provider",
-      "location": "Friedersdorf, Germany"
-    },
-    "os": {
-      "head": "EU Online Dispute Resolution",
-      "text": "The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr."
-    }
+    "translationNote": "This English text is a convenience translation. The German version is legally binding.",
+    "notice": "This website is a <strong>purely private, non-commercial offering</strong> and is used <strong>exclusively for job applications</strong>. It presents personal projects and skills to potential employers. No goods or services are offered and no advertising is shown.",
+    "stand": "As of: November 2026",
+    "sections": [
+      {
+        "heading": "Information pursuant to § 5 DDG",
+        "blocks": [
+          "Adrian Kleinschmidt<br>[Street and house number]<br>79114 Freiburg im Breisgau<br>Germany"
+        ]
+      },
+      {
+        "heading": "Contact",
+        "blocks": [
+          "Email: <a href=\"mailto:kontakt@akleinschmidt.net\">kontakt@akleinschmidt.net</a><br>Alternatively, you can reach me via the <a href=\"/#contact\" class=\"to-contact\">contact form</a> on this website."
+        ]
+      },
+      {
+        "heading": "Responsible for content",
+        "blocks": [
+          "Responsible pursuant to § 18 (2) MStV:<br>Adrian Kleinschmidt, address as above."
+        ]
+      },
+      {
+        "heading": "Liability for content",
+        "blocks": [
+          "As a service provider, I am responsible for my own content on these pages in accordance with general law (§ 7 (1) DDG). Under §§ 8 to 10 DDG, however, I am not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate unlawful activity.",
+          "Obligations to remove or block the use of information under general law remain unaffected. Liability in this respect is only possible from the time I become aware of a specific infringement. Upon becoming aware of such infringements, I will remove the content immediately."
+        ]
+      },
+      {
+        "heading": "Liability for links",
+        "blocks": [
+          "This website contains links to external third-party websites, for example to source code repositories on GitHub. I have no influence on their content. The respective provider or operator is always responsible for the content of the linked pages. No legal violations were apparent at the time of linking. Permanent monitoring of the linked pages is not reasonable without concrete indications of an infringement. Upon becoming aware of infringements, I will remove such links immediately."
+        ]
+      },
+      {
+        "heading": "Copyright",
+        "blocks": [
+          "The content and works created by the site operator on these pages are subject to German copyright law. Third-party contributions are marked as such. Reproduction, editing, distribution and any kind of use beyond the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this page are only permitted for private, non-commercial use.",
+          "Insofar as content on this page was not created by the operator, the copyrights of third parties are respected. Should you nevertheless become aware of a copyright infringement, please let me know. Upon becoming aware of infringements, I will remove such content immediately."
+        ]
+      }
+    ]
   },
-
   "privacy": {
     "title": "Privacy Policy",
-    "intro": "This privacy notice explains the nature, scope and purpose of processing personal data on this website.",
-    "controller": { "head": "Controller" },
-    "contactForm": {
-      "head": "Contact Form",
-      "text": "If you contact us via the form, we process your name, e‑mail address and message exclusively to handle your request."
-    },
-    "rights": {
-      "head": "Your Rights",
-      "access": "Right of access (Art. 15 GDPR)",
-      "delete": "Right to erasure (Art. 17 GDPR)",
-      "correct": "Right to rectification (Art. 16 GDPR)",
-      "restrict": "Right to restriction (Art. 18 GDPR)",
-      "complain": "Right to lodge a complaint with a supervisory authority (Art. 77 GDPR)"
-    },
-    "hosting": {
-      "head": "Hosting",
-      "text": "This site is hosted by ALL‑INKL.COM (Hauptstraße 68, 02742 Friedersdorf, Germany). All data is processed exclusively on servers located in Germany."
-    },
-    "github": {
-      "head": "External GitHub Link Icon",
-      "text": "By clicking the GitHub icon, you will leave this site and be redirected to github.com. GitHub Inc. is responsible for any processing there."
-    }
+    "translationNote": "This English text is a convenience translation. The German version is legally binding.",
+    "notice": "This website is a <strong>purely private, non-commercial offering</strong> and is used <strong>exclusively for job applications</strong>. The protection of your personal data is important to me. Below I inform you in accordance with Art. 13 GDPR about which data is processed when you visit the website and when you get in touch.",
+    "stand": "As of: November 2026",
+    "sections": [
+      {
+        "heading": "1. Controller",
+        "blocks": [
+          "The controller responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:",
+          "Adrian Kleinschmidt<br>[Street and house number]<br>79114 Freiburg im Breisgau<br>Germany<br>Email: <a href=\"mailto:kontakt@akleinschmidt.net\">kontakt@akleinschmidt.net</a>"
+        ]
+      },
+      {
+        "heading": "2. Overview: which data is processed?",
+        "blocks": [
+          [
+            "Access data (server log files) when the website is called up,",
+            "Information you send me via the contact form or by email."
+          ],
+          "This website sets <strong>no cookies</strong>, integrates <strong>no analytics, tracking or advertising services</strong> and loads <strong>no fonts or scripts from third-party servers</strong>. There is no automated decision-making including profiling.",
+          "Your language selection is stored locally in your browser (local storage) so that it is remembered on your next visit. This information is not transmitted to me or to third parties."
+        ]
+      },
+      {
+        "heading": "3. Hosting and server log files",
+        "blocks": [
+          "This website is hosted by ALL‑INKL.COM (Hauptstraße 68, 02742 Friedersdorf, Germany). When the website is called up, the server automatically collects data transmitted by your browser. In particular:",
+          [
+            "IP address,",
+            "date and time of the request,",
+            "page or file requested and amount of data transferred,",
+            "browser type and version, operating system,",
+            "referrer URL (previously visited page)."
+          ],
+          "Processing is necessary to deliver the website and to ensure its stability and security. The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in secure and error-free operation). The hosting provider stores the log data only as long as necessary for this purpose and deletes it afterwards. Where required, a data processing agreement pursuant to Art. 28 GDPR exists with the hosting provider."
+        ]
+      },
+      {
+        "heading": "4. Contact form and contact by email",
+        "blocks": [
+          "If you use the contact form, your name, email address and message are processed. The message is forwarded to me by email via the server of this website. No data is passed on to third parties. The same applies if you email me directly.",
+          "I use your information solely to process your enquiry and to get in touch with you, for example in connection with a job application. The legal bases are Art. 6 (1) (b) GDPR, insofar as the enquiry serves to initiate a contractual relationship, and Art. 6 (1) (f) GDPR (legitimate interest in answering enquiries). By ticking the checkbox in the form you confirm that you have taken note of the privacy policy and consent to the processing of your information (Art. 6 (1) (a) GDPR). You can withdraw this consent at any time with effect for the future.",
+          "Your information will be deleted as soon as your enquiry has been finally processed and no statutory retention obligations apply. Providing the data is voluntary; without it, however, I cannot answer your enquiry via the form."
+        ]
+      },
+      {
+        "heading": "5. External links",
+        "blocks": [
+          "This website contains links to external pages, for example to GitHub (source code) and to the live demonstrations of my projects. Only when you click a link is data (such as your IP address) transmitted to the respective provider. I have no influence on the data processing there. Please observe the privacy notices of the respective providers."
+        ]
+      },
+      {
+        "heading": "6. Encryption",
+        "blocks": [
+          "For security reasons, this website uses SSL/TLS encryption. You can recognise an encrypted connection by “https://” in the address bar of your browser."
+        ]
+      },
+      {
+        "heading": "7. Your rights",
+        "blocks": [
+          "You have the following rights against me as the controller with regard to your personal data:",
+          [
+            "Access (Art. 15 GDPR),",
+            "rectification (Art. 16 GDPR),",
+            "erasure (Art. 17 GDPR),",
+            "restriction of processing (Art. 18 GDPR),",
+            "data portability (Art. 20 GDPR),",
+            "objection to processing based on legitimate interests (Art. 21 GDPR)."
+          ],
+          "You can withdraw any consent given at any time with effect for the future (Art. 7 (3) GDPR). Simply contact <a href=\"mailto:kontakt@akleinschmidt.net\">kontakt@akleinschmidt.net</a>."
+        ]
+      },
+      {
+        "heading": "8. Right to lodge a complaint with a supervisory authority",
+        "blocks": [
+          "Without prejudice to other remedies, you have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR). The competent authority is the supervisory authority of the federal state in which I reside: the State Commissioner for Data Protection and Freedom of Information of Baden-Württemberg: Prof. Dr. Tobias Keber (Heilbronner Straße 35, 70191 Stuttgart, Germany). An overview of all authorities can be found on the website of the <a href=\"https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html\" target=\"_blank\" rel=\"noopener\">Federal Commissioner for Data Protection and Freedom of Information</a>."
+        ]
+      },
+      {
+        "heading": "9. Currency of this policy",
+        "blocks": [
+          "I will adapt this privacy policy if the website or the legal requirements change. The version published here applies."
+        ]
+      }
+    ]
   }
 }

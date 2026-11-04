@@ -1,92 +1,94 @@
-// @import "~aos/dist/aos.css";
-
-$w: white;
-$g: #70e61c;
-$r: #e61c40;
-$grey: #b6b6b6;
-$purple: #9747ff;
-$darkblue: #141d2f;
-$lightblue: #1cdae6;
-$c: center;
-$f: flex;
-$col: column;
-$breakpoint-FHD: 1920px;
-$breakpoint-1440p: 1440px;
-$breakpoint-desktop: 1024px;
-$breakpoint-tablet: 768px;
-$breakpoint-mobile: 480px;
+@use "variables" as *;
 
 @font-face {
   font-family: "Poppins";
   src: url("/assets/fonts/poppins.woff2") format("woff2");
   font-weight: 400;
-  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
   src: url("/assets/fonts/poppins-bold.woff2") format("woff2");
   font-weight: 700;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: "Audiowide";
+  src: url("/assets/fonts/audiowide.ttf") format("truetype");
 }
 
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: $darkblue;
-  color: $w;
-  display: $f;
-  flex-direction: $col;
-  height: 100%;
-}
-
-body.no-scroll {
+body.menu-open {
   overflow: hidden;
 }
 
-app-root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-h1 {
-  font-weight: 700;
-  color: $w;
-  line-height: 120%;
-  letter-spacing: 0;
-}
-
-h2 {
-  font-weight: 700;
-  line-height: 120%;
-  letter-spacing: 0;
-}
-
-button {
-  background-color: $g;
-  color: $w;
+// Button look for a link (<a href>) or a form button (<button>), never both nested
+.cta-link {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 15px 30px;
+  white-space: nowrap;
+  font-size: 23px;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: $green;
+  color: $darkblue;
   border: none;
   border-radius: 10px;
-  filter: drop-shadow(4px 4px 4px #00000025);
-  cursor: pointer;
   transition: all 125ms ease-in-out;
-}
 
-.regular-btn {
-  width: fit-content;
-  padding: 15px 30px;
-  font-size: 23px;
   &:hover {
-    transform: scale(1.25) translate(15px, 5px);
     background-color: $purple;
+    transform: scale(1.1) translate(15px, 5px);
+    filter: saturate(1.5);
+    color: white;
+  }
+
+  &:disabled {
+    background-color: gray;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: not-allowed;
+    filter: none;
+    transform: none;
   }
 }
 
-.line {
-  height: 4px;
+// Scroll reveal (RevealDirective): subtle fade + short slide, plays in both scroll directions
+.reveal {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &[data-reveal="up"] { transform: translateY(24px); }
+  &[data-reveal="left"] { transform: translateX(-24px); }
+  &[data-reveal="right"] { transform: translateX(24px); }
+
+  &.in {
+    opacity: 1;
+    transform: none;
+    transition-delay: var(--reveal-delay, 0ms); // stagger only on the way in
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    // keep the fade, drop the slide
+    transform: none !important;
+  }
+}
+
+// long labels (e.g. "Kontakt aufnehmen") must stay on one line on very narrow screens
+@media (max-width: 380px) {
+  .cta-link {
+    padding: 12px 22px;
+    font-size: 18px;
+  }
 }

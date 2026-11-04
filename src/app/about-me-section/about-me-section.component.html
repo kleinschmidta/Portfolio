@@ -1,0 +1,28 @@
+<section id="about-me">
+    <div class="about-me-content">
+        <div class="text-container">
+            <h2 reveal="left">{{ 'about.title' | t }}</h2>
+            <p reveal="fade" [revealDelay]="100">{{ 'about.p1' | t }}</p>
+            <p reveal="fade" [revealDelay]="200">{{ 'about.p2' | t }}</p>
+            <ul reveal="fade" [revealDelay]="300">
+                <li>
+                    <img src="/assets/images/icons/location.png" alt="" class="list-icons">
+                    <span>{{ 'about.items.0' | t }}</span>
+                </li>
+                <li>
+                    <img src="/assets/images/icons/bulb.png" alt="" class="list-icons">
+                    <span>{{ 'about.items.1' | t }}</span>
+                </li>
+                <li>
+                    <img src="/assets/images/icons/puzzle.png" alt="" class="list-icons">
+                    <span>{{ 'about.items.2' | t }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="image-container" reveal="right" [revealDelay]="150">
+            <img src="/assets/images/photo.png" alt="Adrian Kleinschmidt" class="photo">
+            <img src="/assets/images/shadows-photo.png" alt="" class="photo-shadows">
+        </div>
+    </div>
+    <img src="/assets/images/curved.png" alt="" class="deco-image">
+</section>

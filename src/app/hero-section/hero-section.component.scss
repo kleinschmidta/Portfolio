@@ -1,0 +1,249 @@
+@use "../../variables" as *;
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-25px);
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+section {
+  position: relative;
+  height: calc(100svh - 110px);
+  min-height: 500px;
+  margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  scroll-margin-top: 110px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.title-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 32px;
+}
+
+// Vertical text reading bottom to top. writing-mode (not a bare rotate) makes the box as long as
+// the text, so longer words ("Ich bin") neither get clipped nor leave a gap next to the name.
+.title-extension {
+  align-self: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  color: white;
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+.title {
+  color: white;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+.subtitle-wrapper {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.subtitle {
+  font-size: 64px;
+  color: $purple;
+  text-transform: uppercase;
+  line-height: 120%;
+  letter-spacing: 0;
+  filter: brightness(1.2) saturate(1.5);
+  white-space: nowrap;
+}
+
+.caret {
+  border-right: 2px solid;
+
+  &.blinking {
+    animation: blink 1s step-end infinite;
+  }
+}
+
+.untyped {
+  visibility: hidden;
+}
+
+.animated-indicator {
+  position: absolute;
+  bottom: 120px;
+  right: max(50px, calc(50% - 670px));
+  cursor: default;
+  animation: bounce 1s ease-in-out infinite alternate;
+
+  p {
+    font-size: 24px;
+    color: white;
+    transform: rotate(90deg);
+    transition: color 0.25s ease;
+  }
+}
+
+.socials {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.line {
+  flex-shrink: 0;
+  height: 4px;
+  width: max(100px, calc(50% - 620px));
+  background-color: #70e61c;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.social-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all 125ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.25) translate(4px, 0);
+  }
+}
+
+.shadow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  opacity: 0.8;
+  filter: brightness(1.2) saturate(1.5);
+
+  // -300px up to 1440px, then fixed relative to the centred content (fully visible from 2040px)
+  &.left {
+    left: max(-300px, calc(50% - 1020px));
+  }
+
+  &.right {
+    right: max(-300px, calc(50% - 1020px));
+  }
+}
+
+@media (max-width: 1440px) {
+  .title-extension {
+    font-size: 72px;
+  }
+  .title {
+    font-size: 72px;
+  }
+  .subtitle {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    height: calc(100svh - 96px);
+    margin-top: 96px;
+    scroll-margin-top: 96px;
+  }
+  .title-wrapper {
+    padding: 0 50px;
+  }
+  .title-extension {
+    font-size: 56px;
+  }
+  .title {
+    font-size: 56px;
+  }
+  .subtitle {
+    font-size: 38px;
+  }
+
+  .shadow.left,
+  .shadow.right {
+    height: 700px;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    height: calc(100svh - 80px);
+    margin-top: 80px;
+    scroll-margin-top: 80px;
+  }
+  .title-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .title-container {
+    text-align: center;
+  }
+  .title-extension {
+    font-size: 36px;
+    writing-mode: horizontal-tb;
+    transform: none;
+    line-height: 120%;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .subtitle {
+    font-size: 30px;
+  }
+  .animated-indicator {
+    display: none;
+  }
+  .shadow.left,
+  .shadow.right {
+    height: 600px;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-wrapper {
+    padding: 0 16px;
+  }
+  .title-extension {
+    font-size: 32px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+  .shadow.left,
+  .shadow.right {
+    height: 500px;
+    width: auto;
+  }
+}

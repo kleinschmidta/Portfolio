@@ -1,0 +1,25 @@
+<section id="skills">
+    <div class="headline">
+        <h2 reveal="right">{{ 'skills.title' | t }}</h2>
+        <div class="line"></div>
+    </div>
+    <div class="skills-content">
+        <div class="icon-container" reveal>
+            @for (skill of skills; track skill.icon) {
+                <div class="skill-icon" [class.learn-icon]="skill.icon === 'learn'">
+                    <img [src]="'/assets/images/icons/' + skill.icon + '.png'" alt="" class="icon-img">
+                    <span class="icon-label">{{ skill.icon === 'learn' ? ('skills.learn' | t) : skill.name }}</span>
+                </div>
+            }
+        </div>
+
+        <div class="text-container">
+            <p reveal="fade">{{ 'skills.text' | t }}</p>
+            <div class="skill-followup" reveal="fade" [revealDelay]="150">
+                <h3>{{ 'skills.lookingFor' | t }} <span>{{ 'skills.anotherSkill' | t }}</span>?</h3>
+                <p>{{ 'skills.followup' | t }}</p>
+                <a href="#contact" class="cta-link">{{ 'skills.cta' | t }}</a>
+            </div>
+        </div>
+    </div>
+</section>

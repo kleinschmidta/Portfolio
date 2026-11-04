@@ -1,0 +1,49 @@
+<div class="noise-background"></div>
+<header class="legal-header">
+    <div class="legal-header-content">
+        <a routerLink="/" class="logo" [title]="'legal.home' | t">
+            <app-logo></app-logo>
+        </a>
+        <div class="legal-header-right">
+            <a routerLink="/" class="back-link">
+                <span class="arrow">&larr;</span> {{ 'legal.back' | t }}
+            </a>
+            <app-language-switch></app-language-switch>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="headline">
+        <div class="line"></div>
+        <h1 [attr.lang]="i18n.lang()">{{ doc + '.title' | t }}</h1>
+    </div>
+    <div class="legal-content">
+        <div class="legal-text" [attr.lang]="i18n.lang()" (click)="onContentClick($event)">
+
+            <p class="notice" [innerHTML]="doc + '.notice' | t"></p>
+            @if (translationNote) {
+                <p class="stand">{{ translationNote }}</p>
+            }
+
+            @for (section of sections; track $index) {
+                <h2 [innerHTML]="section.heading"></h2>
+                @for (block of section.blocks; track $index) {
+                    @if (isList(block)) {
+                        <ul>
+                            @for (item of asList(block); track $index) {
+                                <li [innerHTML]="item"></li>
+                            }
+                        </ul>
+                    } @else {
+                        <p [innerHTML]="block"></p>
+                    }
+                }
+            }
+
+            <p class="stand">{{ doc + '.stand' | t }}</p>
+        </div>
+    </div>
+</main>
+
+<app-footer></app-footer>

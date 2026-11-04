@@ -1,0 +1,28 @@
+@use "../../variables" as *;
+
+.language-btns {
+  display: flex;
+  gap: 16px;
+
+  button {
+    font-size: var(--lang-font-size, 20px);
+    background-color: $darkblue;
+    padding: 5px 8px;
+    border: 1px solid $green;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+
+    &:hover {
+      background-color: $purple;
+    }
+
+    &.active {
+      cursor: default;
+      pointer-events: none;
+      background-color: $green;
+      color: $darkblue;
+    }
+  }
+}

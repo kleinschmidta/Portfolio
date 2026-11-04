@@ -1,0 +1,908 @@
+@use "../../variables" as *;
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+// spinning conic-gradient border + glow, used by the modal and the inline project cards
+@mixin glow-border($radius) {
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(
+      from var(--angle),
+      $green,
+      $purple,
+      $lightblue,
+      $green
+    );
+    z-index: -1;
+    padding: 3px;
+    border-radius: $radius;
+    animation: spin 3s linear infinite;
+  }
+
+  &::before {
+    filter: blur(10px);
+    opacity: 0.5;
+  }
+}
+
+section {
+  --header-h: 110px;
+  position: relative;
+  z-index: 10;
+  padding-top: 120px;
+  scroll-margin-top: var(--header-h);
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+
+  h2 {
+    font-size: 90px;
+    color: white;
+  }
+}
+
+// grows with the screen above 1440px so "Portfolio" stays aligned with the content edge
+.headline .line {
+  flex-shrink: 0;
+  height: 4px;
+  width: max(100px, calc(50% - 620px));
+  background-color: $purple;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.portfolio-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: white;
+
+  p {
+    font-size: 20px;
+  }
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 50%;
+  text-transform: uppercase;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
+
+.project-list {
+  position: relative;
+}
+
+.project-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 32px 40px 0;
+  transition: padding 0.5s ease-out;
+  min-height: 170px;
+  cursor: pointer;
+
+  &:hover {
+    padding: 40px 32px;
+
+    .info {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: height 0.2s ease-out;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    height: 100%;
+  }
+
+  &:hover .project-card img {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    font-family: "Audiowide";
+    font-size: 36px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.project-name {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  text-align: right;
+}
+
+.item-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    transition: all 125ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+      border-color: $purple;
+      color: $purple;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  a.github-link img {
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+  }
+}
+
+.info {
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 500ms ease-in-out;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.languages {
+  font-size: 20px;
+}
+
+// empty slot between name and languages, the preview image is centred in it
+.project-card {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  min-width: 0;
+  pointer-events: none;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(100%, 280px);
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease-out,
+      visibility 0.3s ease-out;
+    z-index: 10;
+    filter: drop-shadow(10px 10px 10px rgba(255, 255, 255, 0.4));
+  }
+}
+
+.line-separator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  height: 4px;
+  background-color: white;
+  background-image: linear-gradient(to right, $purple 40%, $lightblue);
+  filter: saturate(200%);
+  box-shadow:
+    -5px 0 50px $purple,
+    5px 0 50px $lightblue;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+
+  &.animate-line {
+    width: 100%;
+  }
+}
+
+.info-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  // the header (z-index 100) sits above the section, so keep the modal below it
+  padding: calc(var(--header-h) + 16px) 24px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+  backdrop-filter: blur(4px);
+}
+
+.info-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(1200px, 100%);
+  max-height: 100%;
+  background: $darkblue;
+  border-radius: 24px;
+  position: relative;
+
+  @include glow-border(24px);
+}
+
+.info-modal-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 0;
+  overflow-y: auto;
+  border-radius: 24px;
+
+  p {
+    font-size: 20px;
+    text-align: justify;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  h5 {
+    font-size: 56px;
+    color: $purple;
+
+    span {
+      text-transform: uppercase;
+      font-family: "Audiowide";
+      color: white;
+    }
+  }
+
+  button {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 125ms ease-in-out;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.modal-content {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  // takes the height the title leaves (which differs when it wraps), so the image shrinks instead of the modal scrolling
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.modal-left,
+.modal-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 0px;
+
+  p {
+    font-size: 24px;
+    text-align: left;
+  }
+}
+
+.modal-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+// tablet / mobile replacement for list + modal
+.project-cards {
+  display: none;
+}
+
+.project-detail {
+  position: relative;
+  background: $darkblue;
+  border-radius: 24px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "head img"
+    "text img"
+    "links img";
+  grid-template-rows: auto 1fr auto;
+  gap: 24px 32px;
+
+  @include glow-border(24px);
+
+  h4 {
+    text-transform: uppercase;
+    font-family: "Audiowide";
+    font-size: 32px;
+  }
+
+  .detail-head {
+    grid-area: head;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .detail-img {
+    grid-area: img;
+    align-self: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .detail-text {
+    grid-area: text;
+    font-size: 18px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .detail-links {
+    grid-area: links;
+  }
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 48px;
+
+  h3 {
+    font-size: 32px;
+    color: $purple;
+    text-align: center;
+  }
+}
+
+.slideshow {
+  --card-w: 800px;
+  --slide-pt: 60px;
+  --mark-w: 80px;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  padding: var(--slide-pt) 60px 40px;
+  position: relative;
+  touch-action: pan-y;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+.speech-mark {
+  position: absolute;
+  top: calc(var(--slide-pt) - 20px);
+  left: calc(50% - var(--card-w) / 2 + var(--mark-x, 10px));
+  transform: translateX(-50%);
+  z-index: 2;
+  width: var(--mark-w);
+  height: auto;
+}
+
+.cards-container {
+  display: flex;
+  gap: 20px;
+  margin-left: calc(50% - var(--card-w) / 2);
+  transition: transform 0.3s ease;
+
+  &.dragging {
+    transition: none;
+  }
+}
+
+.review-card {
+  flex-shrink: 0;
+  width: var(--card-w);
+  padding: 48px 96px;
+  background-color: $darkblue;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  border-radius: 32px;
+  font-size: 20px;
+  position: relative;
+
+  &.active {
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+      width: 100%;
+      background-image: conic-gradient(
+        from var(--angle),
+        transparent 70%,
+        $purple
+      );
+      z-index: -1;
+      padding: 3px;
+      border-radius: 32px;
+      animation: spin 3s linear infinite;
+    }
+
+    &::before {
+      filter: blur(10px);
+      opacity: 0.5;
+    }
+  }
+
+  &:not(.active) {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+}
+
+.card-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .line {
+    height: 4px;
+    width: 100%;
+    background-color: $lightblue;
+    border-radius: 2px;
+  }
+}
+
+.author-info {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+
+  h6 {
+    font-size: inherit;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: transform 125ms ease-in-out;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.scroll-left {
+  transform: rotate(90deg);
+}
+
+.scroll-right {
+  transform: rotate(-90deg);
+}
+
+.dots {
+  display: flex;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  transition: all 0.3s ease;
+
+  &.active {
+    background-color: $purple;
+    transform: scale(1.3);
+  }
+}
+
+@media (max-width: 1440px) {
+  .headline h2 {
+    font-size: 72px;
+  }
+
+  .portfolio-content p {
+    font-size: 16px;
+  }
+
+  .projects-header h3 {
+    font-size: 20px;
+  }
+
+  .project-item {
+    min-height: 150px;
+    padding: 32px 24px 32px 0;
+
+    &:hover {
+      padding: 32px 24px;
+    }
+
+    h4 {
+      font-size: 28px;
+    }
+  }
+
+  .languages {
+    font-size: 16px;
+  }
+
+  .project-card img {
+    width: min(100%, 240px);
+  }
+
+  .item-links a {
+    font-size: 16px;
+    padding: 6px 14px;
+
+    img,
+    &.github-link img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .info-modal-content {
+    padding: 28px;
+    gap: 16px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .modal-header h5 {
+    font-size: 40px;
+  }
+
+  .modal-left {
+    padding: 24px 0;
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .reviews h3 {
+    font-size: 28px;
+  }
+
+  .slideshow {
+    --card-w: 640px;
+    --slide-pt: 52px;
+    --mark-w: 64px;
+  }
+
+  .review-card {
+    padding: 40px 64px;
+    gap: 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    --header-h: 96px;
+    padding-top: 80px;
+  }
+
+  .headline .line {
+    width: 50px;
+  }
+
+  .portfolio-content {
+    padding: 0 50px 80px;
+  }
+
+  .projects-header {
+    max-width: none;
+  }
+
+  .project-list {
+    display: none;
+  }
+
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 8px 0;
+  }
+
+  .reviews {
+    margin-top: 40px;
+  }
+
+  .slideshow {
+    --card-w: min(620px, calc(100vw - 160px));
+    --slide-pt: 44px;
+    --mark-w: 56px;
+    padding: var(--slide-pt) 0 32px;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  }
+
+  .review-card {
+    padding: 32px 48px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    --header-h: 80px;
+    padding-top: 60px;
+  }
+
+  .headline h2 {
+    font-size: 56px;
+  }
+
+  .project-detail {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "head"
+      "img"
+      "text"
+      "links";
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 24px;
+
+    h4 {
+      font-size: 28px;
+    }
+
+    // the screenshots carry transparent margins, pull them in
+    .detail-img {
+      max-width: 420px;
+      justify-self: center;
+      margin: -24px 0;
+    }
+
+    .detail-text {
+      font-size: 16px;
+    }
+  }
+
+  .reviews h3 {
+    font-size: 24px;
+  }
+
+  .slideshow {
+    --card-w: calc(100vw - 140px);
+  }
+
+  .review-card {
+    padding: 28px 32px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding-top: 48px;
+  }
+
+  .headline {
+    gap: 16px;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    .line {
+      width: 24px;
+    }
+  }
+
+  .portfolio-content {
+    padding: 0 24px 60px;
+  }
+
+  .projects-header h3 {
+    font-size: 16px;
+  }
+
+  .project-cards {
+    gap: 32px;
+  }
+
+  .project-detail {
+    padding: 20px;
+    border-radius: 20px;
+    gap: 16px;
+
+    h4 {
+      font-size: 24px;
+    }
+  }
+
+  .item-links {
+    gap: 12px;
+
+    a {
+      gap: 8px;
+      font-size: 14px;
+
+      img,
+      &.github-link img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  .reviews h3 {
+    font-size: 20px;
+  }
+
+  .slideshow {
+    --card-w: calc(100vw - 72px);
+    --slide-pt: 36px;
+    --mark-w: 44px;
+    --mark-x: 24px;
+    padding-bottom: 24px;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 4%,
+      black 96%,
+      transparent 100%
+    );
+  }
+
+  .review-card {
+    padding: 24px 20px;
+    gap: 20px;
+    font-size: 14px;
+    border-radius: 24px;
+  }
+
+  .navigation {
+    gap: 20px;
+
+    button {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .dots {
+    gap: 12px;
+  }
+}

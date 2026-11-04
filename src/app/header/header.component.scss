@@ -1,0 +1,243 @@
+@use "../../variables" as *;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $darkblue;
+  border-radius: 0 0 50px 50px;
+  border-bottom: 2px solid $green;
+  z-index: 100;
+  transition: border-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &[data-theme="blue"] {
+    border-color: $lightblue;
+
+    .nav-link::after {
+      background-color: $lightblue;
+    }
+  }
+
+  &[data-theme="purple"] {
+    border-color: $purple;
+
+    .nav-link::after {
+      background-color: $purple;
+    }
+  }
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 29px 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: 92px;
+  height: 50px;
+  padding: 4px 4px 4px 8px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    bottom: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $purple;
+  }
+
+  &:hover .logo-mark {
+    background-color: $green;
+  }
+}
+
+.logo-mark {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  mask: url("/assets/images/logo2.png") center / cover no-repeat;
+  transition: background-color 125ms ease-in-out;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+nav {
+  display: flex;
+  gap: 32px;
+  position: relative;
+}
+
+.nav-link {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #fff;
+  padding-bottom: 6px;
+
+  &:hover {
+    color: $green;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 4px;
+    background-color: $green;
+    border-radius: 2px;
+    opacity: 0;
+    transition:
+      opacity 125ms,
+      background-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  &.active::after {
+    opacity: 1;
+  }
+}
+
+.nav-link-inner {
+  position: relative;
+}
+
+.text-line {
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.text-one {
+  transform: translateY(0);
+}
+
+.text-two {
+  position: absolute;
+  left: 0;
+  top: 0;
+  // a little more than one line, so the dots of "Ü" do not peek into the link's bottom padding
+  transform: translateY(130%);
+}
+
+.nav-link:hover .text-one {
+  transform: translateY(-130%);
+}
+
+.nav-link:hover .text-two {
+  transform: translateY(0);
+}
+
+.menu-btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1440px) {
+  .header-right {
+    gap: 48px;
+  }
+  .nav-link {
+    font-size: 20px;
+  }
+  app-language-switch {
+    --lang-font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    border-radius: unset;
+    border-bottom: 2px solid $green;
+  }
+  .header-content {
+    padding: 15px 50px;
+  }
+  .header-right {
+    position: fixed;
+    top: 96px;
+    left: 0;
+    right: 0;
+    height: calc(100dvh - 96px);
+    background-color: $darkblue;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      visibility 0s linear 0.35s;
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .nav-link {
+      font-size: 32px;
+    }
+    app-language-switch {
+      --lang-font-size: 20px;
+    }
+    &.open {
+      transform: translateX(0);
+      visibility: visible;
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+  .menu-btn {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 76px;
+    height: 40px;
+
+    &::after {
+      right: -1px;
+      bottom: 4px;
+      width: 6px;
+      height: 6px;
+    }
+  }
+  .menu-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .header-right {
+    top: 80px;
+    height: calc(100dvh - 80px);
+  }
+}

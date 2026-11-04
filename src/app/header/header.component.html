@@ -1,0 +1,44 @@
+<header [attr.data-theme]="theme">
+    <div class="header-content">
+        <a href="#home" class="logo" [title]="'nav.top' | t" (click)="select('home')">
+            <span class="logo-mark" role="img" aria-label="Logo"></span>
+        </a>
+
+        <div class="header-right" [class.open]="menuOpen">
+            <nav>
+                <a href="#about-me" class="nav-link" [class.active]="active === 'about-me'" (click)="select('about-me')">
+                    <span class="nav-link-inner">
+                        <span class="text-line text-one">{{ 'nav.about' | t }}</span>
+                        <span class="text-line text-two">{{ 'nav.about' | t }}</span>
+                    </span>
+                </a>
+                <a href="#skills" class="nav-link" [class.active]="active === 'skills'" (click)="select('skills')">
+                    <span class="nav-link-inner">
+                        <span class="text-line text-one">{{ 'nav.skills' | t }}</span>
+                        <span class="text-line text-two">{{ 'nav.skills' | t }}</span>
+                    </span>
+                </a>
+                <a href="#portfolio" class="nav-link" [class.active]="active === 'portfolio'" (click)="select('portfolio')">
+                    <span class="nav-link-inner">
+                        <span class="text-line text-one">{{ 'nav.portfolio' | t }}</span>
+                        <span class="text-line text-two">{{ 'nav.portfolio' | t }}</span>
+                    </span>
+                </a>
+                <a href="#contact" class="nav-link" [class.active]="active === 'contact'" (click)="select('contact')">
+                    <span class="nav-link-inner">
+                        <span class="text-line text-one">{{ 'nav.contact' | t }}</span>
+                        <span class="text-line text-two">{{ 'nav.contact' | t }}</span>
+                    </span>
+                </a>
+            </nav>
+            <app-language-switch></app-language-switch>
+        </div>
+
+        <button type="button" class="menu-btn" [class.is-open]="menuOpen" (click)="toggleMenu()"
+            [attr.aria-label]="(menuOpen ? 'nav.menuClose' : 'nav.menuOpen') | t">
+            <img *ngIf="!menuOpen" src="/assets/images/icons/menu.png" alt="Menu Icon">
+            <img *ngIf="menuOpen" src="/assets/images/icons/close-menu.png" alt="Close Icon">
+        </button>
+
+    </div>
+</header>

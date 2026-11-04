@@ -1,0 +1,196 @@
+@use "../../variables" as *;
+
+section {
+  position: relative;
+  overflow: visible;
+}
+
+.about-me-content {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 100px;
+  gap: 40px;
+  overflow: hidden;
+}
+
+.text-container,
+.image-container {
+  flex: 1 1 0;
+}
+
+.text-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 3;
+
+  h2 {
+    font-size: 90px;
+  }
+
+  p,
+  ul {
+    font-size: 20px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.list-icons {
+  flex-shrink: 0;
+  width: 48px;
+  height: auto;
+  align-self: flex-start;
+  transition: transform 125ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.image-container {
+  position: relative;
+  min-height: 627px;
+
+  &:hover .photo-shadows {
+    filter: drop-shadow(-40px 10px 50px #9747ffa8)
+      drop-shadow(40px 10px 50px #70e61ca8);
+  }
+}
+
+.photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.photo-shadows {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: filter 0.4s ease;
+  z-index: -1;
+}
+
+.deco-image {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  // above 1440px the curve only stretches sideways, so it keeps cutting the photo at the same height
+  max-height: 879px;
+  object-fit: fill;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 1440px) {
+  .text-container {
+    h2 {
+      font-size: 72px;
+    }
+
+    p,
+    ul {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  // --cut: where the curve crosses the middle of the photo (71% of its height, as on desktop)
+  section {
+    --pad-top: 80px;
+    --photo-h: 627px;
+    --cut: calc(var(--pad-top) + var(--photo-h) * 0.71);
+
+    // continues the curve's solid colour down into the skills section and fades out there
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(var(--cut) + 22vw);
+      left: 0;
+      right: 0;
+      bottom: -200px;
+      background: linear-gradient(to bottom, $darkblue calc(100% - 320px), transparent);
+      z-index: 1;
+    }
+  }
+
+  .about-me-content {
+    flex-direction: column;
+    padding: var(--pad-top) 50px 80px;
+  }
+
+  .text-container,
+  .image-container {
+    flex: none;
+  }
+
+  .image-container {
+    order: -1;
+    display: flex;
+    justify-content: center;
+    min-height: 0;
+    height: calc(var(--photo-h) * 0.71 + 24px);
+  }
+
+  .photo {
+    position: static;
+    transform: none;
+    height: var(--photo-h);
+    width: auto;
+  }
+
+  .photo-shadows {
+    top: calc(var(--photo-h) * 0.6);
+    height: calc(var(--photo-h) * 1.225);
+    width: auto;
+  }
+
+  // the curve's top edge sits at 19.1% of the image height in the middle of the image
+  .deco-image {
+    top: var(--cut);
+    transform: translateY(-19.1%);
+  }
+}
+
+@media (max-width: 768px) {
+  .text-container h2 {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    --pad-top: 60px;
+    --photo-h: 410px;
+  }
+
+  .about-me-content {
+    padding: var(--pad-top) 24px 60px;
+  }
+
+  .text-container h2 {
+    font-size: 40px;
+  }
+
+  .list-icons {
+    width: 32px;
+  }
+}

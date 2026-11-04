@@ -1,0 +1,26 @@
+<footer>
+    <div class="footer-content">
+
+        <div class="legal-logo">
+            <a href="#home" class="logo-link" [title]="'footer.top' | t" (click)="onLogoClick($event)">
+                <app-logo></app-logo>
+            </a>
+            <div class="legal-links">
+                <a routerLink="/imprint" class="legal-link">{{ 'footer.imprint' | t }}</a>
+                <a routerLink="/privacy" class="legal-link">{{ 'footer.privacy' | t }}</a>
+            </div>
+        </div>
+
+        <p>&copy; Adrian Kleinschmidt 2026. {{ 'footer.rights' | t }}</p>
+
+        <div class="socials">
+            <a href="https://github.com/kleinschmidta" target="_blank" rel="noopener">
+                <img src="/assets/images/icons/github.png" alt="GitHub">
+            </a>
+            <a href="mailto:kontakt@akleinschmidt.net">
+                <img src="/assets/images/icons/mail.png" alt="Email">
+            </a>
+        </div>
+
+    </div>
+</footer>
