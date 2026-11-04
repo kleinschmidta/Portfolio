@@ -29,15 +29,19 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-.claude/*
-claude.md
-/.angular/cache
+.claude/
+CLAUDE.md
+.angular/
 .sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
 testem.log
 /typings
+
+# Secrets (e.g. SMTP credentials, should they ever be added)
+.env
+.env.*
 
 # System files
 .DS_Store
