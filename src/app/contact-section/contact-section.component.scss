@@ -33,7 +33,8 @@
 .headline {
   display: flex;
   align-items: center;
-  justify-self: flex-end;
+  // pushes the block to the right edge (justify-self does not work on block boxes in Firefox)
+  margin-left: auto;
   gap: 24px;
   width: 50%;
 
@@ -301,7 +302,7 @@
 
   // "Contact" starts at the content edge, the line runs to the right screen edge
   .headline {
-    justify-self: auto;
+    margin-left: 0;
     width: 100%;
     padding-left: 50px;
     margin-bottom: 40px;
